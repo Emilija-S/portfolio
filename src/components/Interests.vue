@@ -1,9 +1,5 @@
 <template>
-  <section>
-
     <li class="display-6 mb-3 d-flex"><i class="fa fa-asterisk mx-2 " aria-hidden="true"></i>{{ interest }}</li>
-
-  </section>
 </template>
 
 <script>

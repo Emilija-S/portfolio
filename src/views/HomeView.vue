@@ -13,7 +13,7 @@
             <hr/>
             <work-experience v-for="experience in workExperiences" :work-experience="experience"/>
 
-            <h3 class="mx-3 mt-5">Soft Skills</h3>
+            <h3 class="mx-3 mt-4 text-uppercase">Soft Skills</h3>
             <hr class="mb-3"/>
             <soft-skills v-for="skill in softSkills" :soft-skill="skill"/>
 
@@ -26,14 +26,13 @@
 
             <h4 class="mt-2">Frontend</h4>
             <ul class="list-unstyled mt-3">
-              <proffesional-skills-frontend v-for="skill in proffesionalSkillsFrontend"
-                                            :proffesional-skill-frontend="skill"/>
+              <proffesional-skills v-for="skill in proffesionalSkillsFrontend" :proffesional-skill="skill"/>
             </ul>
 
             <h4 class="mt-4">Backend</h4>
             <ul class="list-unstyled mt-3">
-              <proffesional-skills-backend v-for="skill in proffesionalSkillBackend"
-                                           :proffesional-skill-backend="skill"/>
+              <proffesional-skills v-for="skill in proffesionalSkillBackend"
+                                           :proffesional-skill="skill"/>
             </ul>
 
             <h3 class="text-uppercase d-flex justify-content-center mt-5">Education</h3>
@@ -63,28 +62,25 @@
 
 <script>
 
-import SoftSkills from "@/components/SoftSkills";
 import Education from "@/components/Education";
 import Interests from "@/components/Interests";
+import SoftSkills from "@/components/SoftSkills";
 import WorkExperience from "@/components/WorkExperience";
 import PersonalStatement from "@/components/PersonalStatement";
+import ProffesionalSkills from "@/components/ProffesionalSkills";
 import PersonalInformationHero from "@/components/PersonalInformationHero";
-import ProffesionalSkillsBackend from "@/components/ProffesionalSkillsBackend";
-import ProffesionalSkillsFrontend from "@/components/ProffesionalSkillsFrontend";
 
 
 export default {
   name: 'HomeView',
   components: {
-
     Education,
     Interests,
     SoftSkills,
     WorkExperience,
     PersonalStatement,
-    PersonalInformationHero,
-    ProffesionalSkillsBackend,
-    ProffesionalSkillsFrontend
+    ProffesionalSkills,
+    PersonalInformationHero
   },
   data() {
     return {
@@ -194,10 +190,8 @@ export default {
         'Tennis',
         'Fitness'
       ]
-
     }
   }
-
 }
 </script>
 
