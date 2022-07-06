@@ -1,14 +1,14 @@
 <template>
   <section class="container">
-    <div class="row bg-darkblue" style="background: darkblue;">
-      <div class="col-3 p-0 m-0">
+    <div class="row bg-secondary">
+      <div class="col-12 col-md-3 p-0 m-0">
         <div class="ratio ratio-250x300">
           <img class="object-fit-cover" src="../assets/images/xconvert.com.webp" alt="Profile picture">
         </div>
       </div>
-      <div class="col-9 text-white">
+      <div class="col-12 col-md-9 text-white">
         <div class="row">
-          <div class="col-8 text-left text-white ps-5">
+          <div class="col-12 col-md-8 text-left text-white ps-5">
             <p class="h3 pt-3 ps-1">EMILIJA SIMONOSKA</p>
             <h5 class="title ps-5">Full Stack Developer</h5>
             <ul class="list-unstyled mt-4 ps-3">
@@ -22,7 +22,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-4">
+          <div class="col-12 col-md-4">
             <ul class="list-unstyled mt-4 ps-3 pt-5">
               <li class="mb-2 d-flex align-items-center pt-3"><i class="fa fa-github mx-2" aria-hidden="true"></i>linkedin.com/username
               </li>
