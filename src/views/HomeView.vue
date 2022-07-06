@@ -7,7 +7,7 @@
 
       <div class="px-5">
         <div class="row">
-          <div class="col-12 col-md-8">
+          <div class="col-12 col-lg-8">
 
             <h3 class="text-uppercase">Work Experience</h3>
             <hr/>
@@ -15,21 +15,21 @@
 
             <h3 class="mx-3 mt-4 text-uppercase">Soft Skills</h3>
             <hr class="mb-3"/>
-            <soft-skills v-for="skill in softSkills" :soft-skill="skill"/>
+            <soft-skills v-for="skill in softSkills" :soft-skill="skill" class="mb-3"/>
 
           </div>
 
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-lg-4">
 
             <h3 class="text-uppercase d-flex justify-content-center">Proffesional Skills</h3>
             <hr/>
 
-            <h4 class="mt-2">Frontend</h4>
+            <h4 class="mt-2 ms-5 text-decoration-underline">Frontend</h4>
             <ul class="list-unstyled mt-3">
               <proffesional-skills v-for="skill in proffesionalSkillsFrontend" :proffesional-skill="skill"/>
             </ul>
 
-            <h4 class="mt-4">Backend</h4>
+            <h4 class="mt-4 ms-5 text-decoration-underline">Backend</h4>
             <ul class="list-unstyled mt-3">
               <proffesional-skills v-for="skill in proffesionalSkillBackend"
                                            :proffesional-skill="skill"/>
@@ -45,7 +45,7 @@
             <h3 class="text-uppercase d-flex justify-content-center mt-5">Interests</h3>
             <hr/>
 
-            <ul class="list-unstyled mt-3 ">
+            <ul class="list-unstyled mt-3">
               <interests v-for="interest in interests" :interest="interest"/>
             </ul>
 

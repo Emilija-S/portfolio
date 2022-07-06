@@ -1,5 +1,5 @@
 <template>
-    <li class="display-6 mb-3 d-flex"><i class="fa fa-asterisk mx-2 " aria-hidden="true"></i>{{ interest }}</li>
+    <li class="fs-4 text-uppercase my-4 mx-md-5 mx-lg-3 px-md-5 px-lg-3"><i class="fa fa-asterisk mx-3 " aria-hidden="true"></i>{{ interest }}</li>
 </template>
 
 <script>
@@ -12,5 +12,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

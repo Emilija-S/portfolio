@@ -1,10 +1,11 @@
 $fa-font-path: "~font-awesome/fonts";
 $primary: #ebeef5;
-$secondary: darkblue;
+$secondary: #0c16b4;
 @import "~font-awesome/scss/font-awesome";
 @import "~bootstrap/scss/bootstrap";
-.ratio-250x300 {
-  --bs-aspect-ratio: calc(250 / 300 * 100%);
+
+.ratio-292x350 {
+  --bs-aspect-ratio: calc(292 / 350 * 100%);
 }
 
 .object-fit-cover {
