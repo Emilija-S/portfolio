@@ -32,7 +32,7 @@
             <h4 class="mt-4 ms-5 text-decoration-underline">Backend</h4>
             <ul class="list-unstyled mt-3">
               <proffesional-skills v-for="skill in proffesionalSkillBackend"
-                                           :proffesional-skill="skill"/>
+                                   :proffesional-skill="skill"/>
             </ul>
 
             <h3 class="text-uppercase d-flex justify-content-center mt-5">Education</h3>
@@ -53,6 +53,22 @@
 
         </div>
 
+      </div>
+
+      <div class="container p-5 p4-2 d-flex justify-content-center">
+
+        <button @click="isClickedLike" class="btn btn-secondary rounded rounded-pill text-white px-3 me-3 ">LIKE
+          <span class="badge px-3"> {{ likesCounter }}</span>
+        </button>
+        <button @click="isClickedDislike" class="btn btn-danger rounded rounded-pill text-white px-3">DISLIKE
+          <span class="badge px-3"> {{ dislikesCounter }}</span>
+        </button>
+      </div>
+
+      <div class="container p-5 d-flex justify-content-center pt-0">
+        <p class="rounded rounded-pill bg-dark text-white">
+          <span class="p-3 text-uppercase">Number of times a button on page is clicked: {{ numberOfTimesAButtonIsClicked }} </span>
+        </p>
       </div>
 
     </article>
@@ -81,6 +97,31 @@ export default {
     PersonalStatement,
     ProffesionalSkills,
     PersonalInformationHero
+  },
+  methods: {
+    isClickedLike() {
+      this.likesCounter++;
+    },
+    isClickedDislike() {
+      this.dislikesCounter++;
+    }
+  },
+
+  computed: {
+    numberOfTimesAButtonIsClicked() {
+      return this.likesCounter + this.dislikesCounter;
+    }
+  },
+
+  watch: {
+    likesCounter() {
+      console.log('Likes: ' + this.likesCounter);
+    },
+
+    dislikesCounter() {
+      console.log('Dislikes ' + this.dislikesCounter);
+    }
+
   },
   data() {
     return {
@@ -189,10 +230,13 @@ export default {
         'Cycling',
         'Tennis',
         'Fitness'
-      ]
+      ],
+      likesCounter: 0,
+      dislikesCounter: 0
     }
   }
 }
+
 </script>
 
 <style scoped></style>
