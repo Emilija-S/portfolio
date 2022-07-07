@@ -35,18 +35,24 @@
                                    :proffesional-skill="skill"/>
             </ul>
 
-            <h3 class="text-uppercase d-flex justify-content-center mt-5">Education</h3>
+            <h3 class="text-uppercase d-flex justify-content-center mt-5 pt-5">Education
+            <span class="ps-3"><i @click="isActiveEducation" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
+            </h3>
             <hr/>
 
             <ul class="list-unstyled">
-              <education v-for="degree in degrees" :education-degree="degree"/>
+              <education v-for="degree in degrees" :education-degree="degree" :is-active-button-education="isActiveButtonEducation"/>
             </ul>
 
-            <h3 class="text-uppercase d-flex justify-content-center mt-5">Interests</h3>
+            <h3 class="text-uppercase d-flex justify-content-center mt-5 pt-5">Interests
+            <span class="ps-3"><i @click="isActiveInterests" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
+            </h3>
+
             <hr/>
 
+
             <ul class="list-unstyled mt-3">
-              <interests v-for="interest in interests" :interest="interest"/>
+              <interests v-for="interest in interests" :interest="interest" :is-active-button-interests="isActiveButtonInterests"/>
             </ul>
 
           </div>
@@ -60,15 +66,11 @@
         <button @click="isClickedLike" class="btn btn-secondary rounded rounded-pill text-white px-3 me-3 ">LIKE
           <span class="badge px-3"> {{ likesCounter }}</span>
         </button>
+
         <button @click="isClickedDislike" class="btn btn-danger rounded rounded-pill text-white px-3">DISLIKE
           <span class="badge px-3"> {{ dislikesCounter }}</span>
         </button>
-      </div>
 
-      <div class="container p-5 d-flex justify-content-center pt-0">
-        <p class="rounded rounded-pill bg-dark text-white">
-          <span class="p-3 text-uppercase">Number of times a button on page is clicked: {{ numberOfTimesAButtonIsClicked }} </span>
-        </p>
       </div>
 
     </article>
@@ -104,23 +106,20 @@ export default {
     },
     isClickedDislike() {
       this.dislikesCounter++;
+    },
+    isActiveInterests() {
+      this.isActiveButtonInterests = !this.isActiveButtonInterests;
+    },
+    isActiveEducation() {
+      this.isActiveButtonEducation = !this.isActiveButtonEducation;
     }
   },
 
   computed: {
-    numberOfTimesAButtonIsClicked() {
-      return this.likesCounter + this.dislikesCounter;
-    }
+
   },
 
   watch: {
-    likesCounter() {
-      console.log('Likes: ' + this.likesCounter);
-    },
-
-    dislikesCounter() {
-      console.log('Dislikes ' + this.dislikesCounter);
-    }
 
   },
   data() {
@@ -232,7 +231,9 @@ export default {
         'Fitness'
       ],
       likesCounter: 0,
-      dislikesCounter: 0
+      dislikesCounter: 0,
+      isActiveButtonInterests: false,
+      isActiveButtonEducation: false
     }
   }
 }
