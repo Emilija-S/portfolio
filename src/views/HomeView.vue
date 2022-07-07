@@ -31,21 +31,21 @@
 
             <h4 class="mt-4 ms-5 text-decoration-underline">Backend</h4>
             <ul class="list-unstyled mt-3">
-              <proffesional-skills v-for="skill in proffesionalSkillBackend"
-                                   :proffesional-skill="skill"/>
+              <proffesional-skills v-for="skill in proffesionalSkillBackend" :proffesional-skill="skill"/>
             </ul>
 
             <h3 class="text-uppercase d-flex justify-content-center mt-5 pt-5">Education
-            <span class="ps-3"><i @click="isActiveEducation" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
+              <span class="ps-3"><i @click="isActiveEducation" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
             </h3>
             <hr/>
 
             <ul class="list-unstyled">
-              <education v-for="degree in degrees" :education-degree="degree" :is-active-button-education="isActiveButtonEducation"/>
+              <education v-for="degree in degrees" :education-degree="degree"
+                         :is-active-button-education="isActiveButtonEducation"/>
             </ul>
 
             <h3 class="text-uppercase d-flex justify-content-center mt-5 pt-5">Interests
-            <span class="ps-3"><i @click="isActiveInterests" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
+              <span class="ps-3"><i @click="isActiveInterests" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
             </h3>
 
             <hr/>
@@ -54,7 +54,18 @@
             <ul class="list-unstyled mt-3">
               <interests v-for="interest in interests" :interest="interest" :is-active-button-interests="isActiveButtonInterests"/>
             </ul>
-
+            <div v-if="!(isActiveButtonInterests && isActiveButtonEducation)" class="mt-5">
+              <h2 class="fs-3  text-black-75 text-center">I HOPE TO WORK WITH YOU VERY SOON</h2>
+              <div class="ratio ratio-150x250">
+              <img src="../assets/images/2560px-Collaboration_logo_V2.svg.png" alt="Profile picture">
+              </div>
+            </div>
+            <div v-else-if="!(isActiveButtonInterests || isActiveButtonEducation)">
+              <h2 class="fs-5 text-black-75 text-center ">I HOPE TO WORK WITH YOU VERY SOON</h2>
+              <div class="ratio ratio-50x100">
+                <img src="../assets/images/2560px-Collaboration_logo_V2.svg.png" alt="Profile picture">
+            </div>
+            </div>
           </div>
 
         </div>
@@ -72,6 +83,7 @@
         </button>
 
       </div>
+
 
     </article>
 
@@ -113,15 +125,12 @@ export default {
     isActiveEducation() {
       this.isActiveButtonEducation = !this.isActiveButtonEducation;
     }
-  },
-
-  computed: {
 
   },
 
-  watch: {
+  computed: {},
 
-  },
+  watch: {},
   data() {
     return {
       workExperiences: [
@@ -233,11 +242,13 @@ export default {
       likesCounter: 0,
       dislikesCounter: 0,
       isActiveButtonInterests: false,
-      isActiveButtonEducation: false
+      isActiveButtonEducation: false,
+      showImg: false
     }
   }
 }
 
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

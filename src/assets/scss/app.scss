@@ -8,6 +8,14 @@ $secondary: #0c16b4;
   --bs-aspect-ratio: calc(292 / 350 * 100%);
 }
 
+.ratio-150x250 {
+  --bs-aspect-ratio: calc(150 / 250 * 100%);
+}
+
+.ratio-50x100 {
+  --bs-aspect-ratio: calc(50 / 100 * 100%);
+}
+
 .object-fit-cover {
   object-fit: cover;
 }
