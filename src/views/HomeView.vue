@@ -50,23 +50,23 @@
 
             <hr/>
 
-
             <ul class="list-unstyled mt-3">
               <interests v-for="interest in interests" :interest="interest" :is-active-button-interests="isActiveButtonInterests"/>
             </ul>
-            <div v-if="!(isActiveButtonInterests && isActiveButtonEducation)" class="mt-5">
-              <h2 class="fs-3  text-black-75 text-center">I HOPE TO WORK WITH YOU VERY SOON</h2>
-              <div class="ratio ratio-150x250">
-              <img src="../assets/images/2560px-Collaboration_logo_V2.svg.png" alt="Profile picture">
-              </div>
-            </div>
-            <div v-else-if="!(isActiveButtonInterests || isActiveButtonEducation)">
-              <h2 class="fs-5 text-black-75 text-center ">I HOPE TO WORK WITH YOU VERY SOON</h2>
-              <div class="ratio ratio-50x100">
-                <img src="../assets/images/2560px-Collaboration_logo_V2.svg.png" alt="Profile picture">
-            </div>
-            </div>
+
           </div>
+
+          <h3 class="d-flex justify-content-center mt-5">RATE YOUR EXPERIENCE: </h3>
+
+          <ul class="list-unstyled d-flex flex-row justify-content-center">
+            <li class="btn" id="id1" @click="rating(1)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li class="btn" id="id2" @click="rating(2)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li class="btn" id="id3" @click="rating(3)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li class="btn" id="id4" @click="rating(4)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li class="btn" id="id5" @click="rating(5)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+          </ul>
+
+          <h3 class="d-flex justify-content-center">Average rating reached: {{ ratioCalculated }}</h3>
 
         </div>
 
@@ -124,11 +124,28 @@ export default {
     },
     isActiveEducation() {
       this.isActiveButtonEducation = !this.isActiveButtonEducation;
-    }
+    },
+    rating(numberOfStars) {
+      let i = 1;
+      for (i = 1; i <= parseInt(numberOfStars); i++) {
+        document.getElementById("id" + i).innerHTML = "<li><i class=\"fa fa-star bg-warning bg-opacity-75 fa-2x\" aria-hidden=\"true\"></i></li>"
+      }
+      for (; i <= 5; i++) {
+        document.getElementById("id" + i).innerHTML = "<li><i class=\"fa fa-star-o fa-2x\" aria-hidden=\"true\"></i></li>"
+      }
+      this.sumOfStars += numberOfStars;
+      this.ratingCounter++;
+
+    },
+
 
   },
 
-  computed: {},
+  computed: {
+    ratioCalculated() {
+      return (this.sumOfStars / this.ratingCounter).toFixed(2);
+    }
+  },
 
   watch: {},
   data() {
@@ -232,7 +249,7 @@ export default {
       ],
 
       interests: [
-        'Photography',
+        'Nature',
         'Books',
         'Traveling',
         'Cycling',
@@ -243,7 +260,9 @@ export default {
       dislikesCounter: 0,
       isActiveButtonInterests: false,
       isActiveButtonEducation: false,
-      showImg: false
+      showImg: false,
+      ratingCounter: 0,
+      sumOfStars: 0
     }
   }
 }
