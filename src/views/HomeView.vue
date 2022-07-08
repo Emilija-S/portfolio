@@ -7,7 +7,7 @@
 
       <div class="px-5">
         <div class="row">
-          <div class="col-12 col-lg-8">
+          <div class="col-12 col-xl-8">
 
             <h3 class="text-uppercase">Work Experience</h3>
             <hr/>
@@ -19,7 +19,7 @@
 
           </div>
 
-          <div class="col-12 col-lg-4">
+          <div class="col-12 col-xl-4">
 
             <h3 class="text-uppercase d-flex justify-content-center">Proffesional Skills</h3>
             <hr/>
@@ -59,11 +59,11 @@
           <h3 class="d-flex justify-content-center mt-5">RATE YOUR EXPERIENCE: </h3>
 
           <ul class="list-unstyled d-flex flex-row justify-content-center">
-            <li class="btn" id="id1" @click="rating(1)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li class="btn" id="id2" @click="rating(2)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li class="btn" id="id3" @click="rating(3)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li class="btn" id="id4" @click="rating(4)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li class="btn" id="id5" @click="rating(5)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 1)? bgColor : ''" @click="rating(1)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 2)? bgColor : ''" @click="rating(2)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 3)? bgColor : ''" @click="rating(3)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 4)? bgColor : ''" @click="rating(4)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars === 5)? bgColor : ''" @click="rating(5)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
           </ul>
 
           <h3 class="d-flex justify-content-center">Average rating reached: {{ ratioCalculated }}</h3>
@@ -72,7 +72,7 @@
 
       </div>
 
-      <div class="container p-5 p4-2 d-flex justify-content-center">
+      <div class="container p-5 d-flex justify-content-center">
 
         <button @click="isClickedLike" class="btn btn-secondary rounded rounded-pill text-white px-3 me-3 ">LIKE
           <span class="badge px-3"> {{ likesCounter }}</span>
@@ -126,19 +126,10 @@ export default {
       this.isActiveButtonEducation = !this.isActiveButtonEducation;
     },
     rating(numberOfStars) {
-      let i = 1;
-      for (i = 1; i <= parseInt(numberOfStars); i++) {
-        document.getElementById("id" + i).innerHTML = "<li><i class=\"fa fa-star bg-warning bg-opacity-75 fa-2x\" aria-hidden=\"true\"></i></li>"
-      }
-      for (; i <= 5; i++) {
-        document.getElementById("id" + i).innerHTML = "<li><i class=\"fa fa-star-o fa-2x\" aria-hidden=\"true\"></i></li>"
-      }
+      this.currentNumberOfStars = numberOfStars;
       this.sumOfStars += numberOfStars;
       this.ratingCounter++;
-
-    },
-
-
+    }
   },
 
   computed: {
@@ -262,7 +253,9 @@ export default {
       isActiveButtonEducation: false,
       showImg: false,
       ratingCounter: 0,
-      sumOfStars: 0
+      sumOfStars: 0,
+      bgColor: 'bg-warning',
+      currentNumberOfStars: 0
     }
   }
 }
