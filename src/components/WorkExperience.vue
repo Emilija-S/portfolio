@@ -8,9 +8,9 @@
     <p class="mx-3 fs-5 fw-bolder">Technologies used</p>
     <ul class="list-inline mb-3">
       <li class="list-inline-item m-2" v-for="experience in workExperience.technologiesUsed">
-        <span class="badge bg-secondary badge-pill fs-5">
-          {{ experience }}
-        </span>
+        <a v-bind:href="experience.technologyLink"  target="_blank"><span class="badge bg-secondary badge-pill fs-5">
+          {{ experience.technologyName }}
+        </span></a>
       </li>
     </ul>
     <hr class="hr-dashed">
@@ -21,6 +21,7 @@
 <script>
 export default {
   name: "WorkExperience",
+
   props: {
     workExperience: Object
   }

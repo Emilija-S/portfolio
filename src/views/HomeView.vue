@@ -55,21 +55,25 @@
             </ul>
 
           </div>
-
-          <h3 class="d-flex justify-content-center mt-5">RATE YOUR EXPERIENCE: </h3>
-          <ul class="list-unstyled d-flex flex-row justify-content-center">
-            <star-rating/>
-          </ul>
-          <h3 class="d-flex justify-content-center">Average rating reached: {{ ratioCalculated }}</h3>
-
         </div>
+
+
+          <h3 class="d-flex justify-content-center text-center mt-5">RATE YOUR EXPERIENCE: </h3>
+          <ul class="list-unstyled d-flex flex-row justify-content-center">
+            <li  class="btn p-2"  :class="(currentNumberOfStars >= 1)? bgColor : ''" @click="rating(1)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn p-2"  :class="(currentNumberOfStars >= 2)? bgColor : ''" @click="rating(2)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn p-2"  :class="(currentNumberOfStars >= 3)? bgColor : ''" @click="rating(3)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn p-2"  :class="(currentNumberOfStars >= 4)? bgColor : ''" @click="rating(4)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <li  class="btn p-2"  :class="(currentNumberOfStars === 5)? bgColor : ''" @click="rating(5)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+          </ul>
+          <h3 class="col-12 d-flex justify-content-center text-center">Average rating reached: {{ ratioCalculated }}</h3>
 
       </div>
 
       <user-experience-buttons/>
 
-    </article>
 
+    </article>
   </main>
 </template>
 
@@ -78,7 +82,6 @@
 import Education from "@/components/Education";
 import Interests from "@/components/Interests";
 import SoftSkills from "@/components/SoftSkills";
-import StarRating from "@/components/StarRating";
 import WorkExperience from "@/components/WorkExperience";
 import PersonalStatement from "@/components/PersonalStatement";
 import ProffesionalSkills from "@/components/ProffesionalSkills";
@@ -93,7 +96,6 @@ export default {
     UserExperienceButtons,
     Education,
     Interests,
-    StarRating,
     SoftSkills,
     WorkExperience,
     PersonalStatement,
@@ -107,6 +109,17 @@ export default {
     },
     isActiveEducation() {
       this.isActiveButtonEducation = !this.isActiveButtonEducation;
+    },
+    rating(numberOfStars) {
+      this.currentNumberOfStars = numberOfStars;
+      this.sumOfStars += numberOfStars;
+      this.ratingCounter++;
+    }
+  },
+
+  computed: {
+    ratioCalculated() {
+      return (this.sumOfStars / this.ratingCounter).toFixed(2);
     }
   },
 
@@ -123,7 +136,20 @@ export default {
               '      not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n' +
               '      It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and\n' +
               '      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          technologiesUsed: ['JAVA', 'HTML', 'CSS']
+          technologiesUsed: [
+            {
+              technologyName: 'JAVA',
+              technologyLink: 'https://docs.oracle.com/javase/7/docs/api/'
+            },
+            {
+              technologyName: 'HTML',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+            },
+            {
+              technologyName: 'CSS',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+            }
+          ]
         },
         {
           title: 'Job Title 2',
@@ -135,7 +161,24 @@ export default {
               '      not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n' +
               '      It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and\n' +
               '      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          technologiesUsed: ['Django', 'Python', 'CSS', 'HTML']
+          technologiesUsed: [
+            {
+              technologyName: 'Django',
+              technologyLink: 'https://docs.djangoproject.com/en/4.0/'
+            },
+            {
+              technologyName: 'Python',
+              technologyLink: 'https://docs.python.org/3/'
+            },
+            {
+              technologyName: 'CSS',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+            },
+            {
+              technologyName: 'HTML',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+            }
+          ]
         },
         {
           title: 'Job Title 3',
@@ -147,7 +190,24 @@ export default {
               '      not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n' +
               '      It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and\n' +
               '      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-          technologiesUsed: ['Python', 'Bootstrap', 'CSS', 'HTML']
+          technologiesUsed: [
+            {
+              technologyName: 'Python',
+              technologyLink: 'https://docs.python.org/3/'
+            },
+            {
+              technologyName: 'Bootstrap',
+              technologyLink: 'https://getbootstrap.com/docs/4.1/getting-started/introduction/'
+            },
+            {
+              technologyName: 'CSS',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+            },
+            {
+              technologyName: 'HTML',
+              technologyLink: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+            }
+          ]
         }
       ],
       softSkills: [
@@ -219,7 +279,11 @@ export default {
         'Fitness'
       ],
 
+      sumOfStars: 0,
       showImg: false,
+      ratingCounter: 0,
+      bgColor: 'bg-warning',
+      currentNumberOfStars: 0,
       isActiveButtonInterests: false,
       isActiveButtonEducation: false
     }

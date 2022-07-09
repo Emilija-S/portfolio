@@ -12,27 +12,35 @@
             <p class="h3  pt-4 ps-2">EMILIJA SIMONOSKA</p>
             <h5 class="title ps-2">Full Stack Developer</h5>
             <ul class="list-unstyled pt-4 ps-2">
+
               <li class="my-2 d-flex flex-column flex-sm-row"><i class="fa fa-envelope mx-2" aria-hidden="true"></i>
-                emilija.simonoska@hotmail.com
+                <a href="https://www.facebook.com/emilijaes/" target="_blank"
+                   class="text-decoration-none">emilija.simonoska@hotmail.com</a>
               </li>
+
               <li class="my-2 d-flex flex-column flex-sm-row"><i class="fa fa-mobile fa-2x mx-2" aria-hidden="true"></i>
                 (+389) 71374292
               </li>
-              <li class="my-2 d-flex flex-column flex-sm-row"><i class="fa fa-compass mx-2" aria-hidden="true"></i>Macedonia,
-                Ohrid
+
+              <li class="my-2 d-flex flex-column flex-sm-row"><i class="fa fa-compass mx-2" aria-hidden="true"></i>
+                Macedonia, Ohrid
               </li>
             </ul>
           </div>
           <div class="col-12 col-xl-3 d-flex align-items-start">
             <ul class="list-unstyled  ms-0 ms-sm-4 ps-0 ps-sm-3 pt-5">
-              <li class="mb-2 d-flex align-items-sm-center pt-3"><i class="fa fa-github mx-2" aria-hidden="true"></i>linkedin.com/username
+              <li class="mb-2 d-flex align-items-sm-center pt-3"><i class="fa fa-github mx-2" aria-hidden="true"></i>
+                <a href="#" class="text-decoration-none">linkedin.com/username</a>
               </li>
-              <li class="my-2 d-flex align-items-sm-center"><i class="fa fa-quora mx-2" aria-hidden="true"></i>quora.com/username
+              <li class="my-2 d-flex align-items-sm-center"><i class="fa fa-quora mx-2" aria-hidden="true"></i>
+                <a href="#" class="text-decoration-none">quora.com/username</a>
               </li>
-              <li class="my-2 d-flex align-items-sm-center"><i class="fa fa-youtube mx-2" aria-hidden="true"></i>youtube.com/username
+              <li class="my-2 d-flex align-items-sm-center"><i class="fa fa-youtube mx-2" aria-hidden="true"></i>
+                <a href="#" class="text-decoration-none">youtube.com/username</a>
               </li>
               <li class="my-2 d-flex align-items-sm-center">
-                <i class="fa fa-linkedin-square mx-2" aria-hidden="true"></i>linkedin.com/username
+                <i class="fa fa-linkedin-square mx-2" aria-hidden="true"></i>
+                <a href="#" class="text-decoration-none">linkedin.com/username</a>
               </li>
             </ul>
           </div>
