@@ -57,33 +57,16 @@
           </div>
 
           <h3 class="d-flex justify-content-center mt-5">RATE YOUR EXPERIENCE: </h3>
-
           <ul class="list-unstyled d-flex flex-row justify-content-center">
-            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 1)? bgColor : ''" @click="rating(1)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 2)? bgColor : ''" @click="rating(2)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 3)? bgColor : ''" @click="rating(3)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars >= 4)? bgColor : ''" @click="rating(4)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
-            <li  class="btn px-2 px-sm-3"  :class="(currentNumberOfStars === 5)? bgColor : ''" @click="rating(5)"><i class="fa fa-star-o fa-2x" aria-hidden="true"></i></li>
+            <star-rating/>
           </ul>
-
           <h3 class="d-flex justify-content-center">Average rating reached: {{ ratioCalculated }}</h3>
 
         </div>
 
       </div>
 
-      <div class="container p-5 d-flex justify-content-center">
-
-        <button @click="isClickedLike" class="btn btn-secondary rounded rounded-pill text-white px-3 me-3 ">LIKE
-          <span class="badge px-3"> {{ likesCounter }}</span>
-        </button>
-
-        <button @click="isClickedDislike" class="btn btn-danger rounded rounded-pill text-white px-3">DISLIKE
-          <span class="badge px-3"> {{ dislikesCounter }}</span>
-        </button>
-
-      </div>
-
+      <user-experience-buttons/>
 
     </article>
 
@@ -95,50 +78,38 @@
 import Education from "@/components/Education";
 import Interests from "@/components/Interests";
 import SoftSkills from "@/components/SoftSkills";
+import StarRating from "@/components/StarRating";
 import WorkExperience from "@/components/WorkExperience";
 import PersonalStatement from "@/components/PersonalStatement";
 import ProffesionalSkills from "@/components/ProffesionalSkills";
 import PersonalInformationHero from "@/components/PersonalInformationHero";
+import UserExperienceButtons from "@/components/UserExperienceButtons";
+
 
 
 export default {
   name: 'HomeView',
   components: {
+    UserExperienceButtons,
     Education,
     Interests,
+    StarRating,
     SoftSkills,
     WorkExperience,
     PersonalStatement,
     ProffesionalSkills,
     PersonalInformationHero
   },
+
   methods: {
-    isClickedLike() {
-      this.likesCounter++;
-    },
-    isClickedDislike() {
-      this.dislikesCounter++;
-    },
     isActiveInterests() {
       this.isActiveButtonInterests = !this.isActiveButtonInterests;
     },
     isActiveEducation() {
       this.isActiveButtonEducation = !this.isActiveButtonEducation;
-    },
-    rating(numberOfStars) {
-      this.currentNumberOfStars = numberOfStars;
-      this.sumOfStars += numberOfStars;
-      this.ratingCounter++;
     }
   },
 
-  computed: {
-    ratioCalculated() {
-      return (this.sumOfStars / this.ratingCounter).toFixed(2);
-    }
-  },
-
-  watch: {},
   data() {
     return {
       workExperiences: [
@@ -247,15 +218,10 @@ export default {
         'Tennis',
         'Fitness'
       ],
-      likesCounter: 0,
-      dislikesCounter: 0,
-      isActiveButtonInterests: false,
-      isActiveButtonEducation: false,
+
       showImg: false,
-      ratingCounter: 0,
-      sumOfStars: 0,
-      bgColor: 'bg-warning',
-      currentNumberOfStars: 0
+      isActiveButtonInterests: false,
+      isActiveButtonEducation: false
     }
   }
 }
