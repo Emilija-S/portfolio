@@ -1,13 +1,11 @@
 import Vue from 'vue'
-import VueSimpleAlert from "vue-simple-alert";
+import VueSimpleAlert from "vue-simple-alert"
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/scss/app.scss'
 
-Vue.use(VueSimpleAlert);
-
-
+Vue.use(VueSimpleAlert)
 Vue.config.productionTip = false
 
 new Vue({
