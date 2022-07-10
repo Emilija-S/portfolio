@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <h3 class="text-uppercase d-flex justify-content-center mt-5 pt-5">Education
+    <h3 class="text-uppercase d-flex flex-row align-items-center justify-content-center mt-5 pt-5">Education
       <span class="ps-3"><i @click="isActiveEducation" class="fa fa-arrow-circle-down fa-2x btn btn-danger"/></span>
     </h3>
     <hr/>

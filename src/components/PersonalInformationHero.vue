@@ -9,17 +9,21 @@
 
       <div class="col-12 col-xl-8 col-xxl-9 text-white">
         <div class="row">
-          <div class="col-12 col-xl-7 col-xxl-8 d-flex flex-column align-items-start ps-sm-5">
+          <div class="col-12 col-xl-7 col-xxl-8 d-flex flex-column  justify-content-start ps-sm-5">
             <h3 class="pt-4 ps-2">EMILIJA SIMONOSKA</h3>
             <h5 class="ps-2">Full Stack Developer</h5>
             <ul class="list-unstyled pt-4 ps-2">
-              <li class="my-2 d-flex flex-column flex-sm-row align-items-center"><i class="fa fa-envelope mx-2" aria-hidden="true"></i>
-                <a href="https://www.facebook.com/emilijaes/" target="_blank" class="text-decoration-none">emilija.simonoska@hotmail.com</a>
+              <li class="my-2 d-flex flex-row justify-content-start align-items-center ">
+                <i class="fa fa-envelope mx-2" aria-hidden="true"></i>
+                <a href="https://www.facebook.com/emilijaes/" target="_blank" class="text-decoration-none">
+                  emilija.simonoska@hotmail.com
+                </a>
               </li>
-              <li class="my-2 d-flex flex-column flex-sm-row align-items-center"><i class="fa fa-mobile fa-2x mx-2" aria-hidden="true"></i>
+              <li class="my-2 d-flex flex-row align-items-center justify-content-start">
+                <i class="fa fa-mobile fa-2x mx-2" aria-hidden="true"></i>
                 (+389) 71374292
               </li>
-              <li class="my-2 d-flex flex-column flex-sm-row align-items-center"><i class="fa fa-compass mx-2" aria-hidden="true"></i>
+              <li class="my-2 d-flex flex-row align-items-center justify-content-start"><i class="fa fa-compass mx-2" aria-hidden="true"></i>
                 Macedonia, Ohrid
               </li>
             </ul>
